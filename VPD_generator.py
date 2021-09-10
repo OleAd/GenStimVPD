@@ -26,6 +26,8 @@ fluidsynth needs to be installed, tested with 2.2.2 on Windows 10
 fluidsynth needs a soundfont called default.sf2
 Most packages in requirements.txt
 
+Only tested on Windows 10. Will work on OSX with twiddling.
+
 
 """
 
@@ -80,8 +82,9 @@ def change_tempo(mid, tempo):
 
 def write_wav(midiName, name):
 	#REPLACE THIS WITH YOUR OWN FLUIDSYNTH
-	fluidsynth = 'C:/Users/olehe/Documents/GitHub/VPD_generator/fluidsynth-2.2.2/bin/fluidsynth.exe'
+	fluidsynth = 'PATH TO fluidsynth.exe'
 	result = subprocess.run([fluidsynth, "-i", "-q", "default.sf2", midiName, "-T", "wav", "-F", name], shell=True)
+	# change to shell=False on OSX.
 	# This doesn't always play nice, but it's solved by simply letting it sleep a bit.
 	# I've not tested without the sleep, so it could possible work without it.
 	time.sleep(1)
